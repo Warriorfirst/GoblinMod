@@ -1,0 +1,16 @@
+[
+    {
+        "modid": "DumaTech_v1.0.0",
+        "name": "DumaTech",
+        "description": "",
+        "version": "${version}",
+        "mcversion": "${mcversion}",
+        "url": "",
+        "updateUrl": "",
+        "authorList": [""],
+        "credits": "",
+        "logoFile": "",
+        "screenshots": [],
+        "dependencies": []
+    }
+]
