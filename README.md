@@ -1,8 +1,12 @@
-# :closed_book: ForgeTemplate
+# :closed_book: GoblinsMod
 
-A Minecraft Forge 1.8.9 modding template with Essential. 
+GoblinsMod is a Forge Mod made by BabyGetSwekt/Goblinbanaan. This mod runs on version 1.8.9 and has cool features in it.
 
-Use Java 1.8 for Minecraft Client JRE. 
-Use Java 17 for Gradle JVM & Project SDK. 
+# :pencil2: Credits
 
-test
+[Antipowers](https://github.com/antipowers) for their [Forge Template](https://github.com/antipowers/ForgeTemplate)
+
+# :pencil: Building
+
+- Use Java 1.8 for Minecraft Client JRE.
+- Use Java 17 for Gradle JVM & Project SDK. 
