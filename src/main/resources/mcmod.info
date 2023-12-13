@@ -1,13 +1,13 @@
 [
     {
-        "modid": "DumaTech_v1.0.0",
-        "name": "DumaTech",
-        "description": "",
+        "modid": "GoblinsMod1.0.0",
+        "name": "GoblinsMod",
+        "description": "Just a mod for me to test in",
         "version": "${version}",
         "mcversion": "${mcversion}",
         "url": "",
         "updateUrl": "",
-        "authorList": [""],
+        "authorList": ["Goblinbanaan"],
         "credits": "",
         "logoFile": "",
         "screenshots": [],
