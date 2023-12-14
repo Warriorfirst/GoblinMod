@@ -17,7 +17,8 @@ public class GoblinConfig extends Vigilant {
     @Property(
             type = PropertyType.SWITCH, name = "Dungeon Death Message",
             description = "Displays a funny death message when someone in your party dies.",
-            category = "Dungeon", subcategory = "Funny stuff"
+            category = "Dungeon", subcategory = "Funny stuff",
+            searchTags = {"Message", "Dead"}
     )
     public static boolean dungeonDeathMessage = false;
 

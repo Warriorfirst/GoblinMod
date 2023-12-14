@@ -1,6 +1,6 @@
 package goblinbanaan.utils;
 
-import goblinbanaan.utils.GuiUtils;
+import goblinbanaan.utils.ScoreBoardUtil;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -220,9 +220,9 @@ public class Utils {
      * https://github.com/bowser0000/SkyblockMod/blob/master/LICENSE
      * @author bowser0000
      */
-    /*public static void checkForDungeons() {
+    public static void checkForDungeons() {
         if (inSkyblock) {
-            List<String> scoreboard = ScoreboardUtil.getSidebarLines();
+            List<String> scoreboard = ScoreBoardUtil.getSidebarLines();
             for (String s : scoreboard) {
                 if ((s.contains("The Catacombs") && !s.contains("Queue")) || s.contains("Cleared:")) {
                     inDungeons = true;
@@ -231,7 +231,7 @@ public class Utils {
             }
         }
         inDungeons = false;
-    }*/
+    }
 
 
     public static void sendMessage(String string) {
