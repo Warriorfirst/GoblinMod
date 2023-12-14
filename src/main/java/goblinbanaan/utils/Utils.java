@@ -1,6 +1,5 @@
 package goblinbanaan.utils;
 
-import goblinbanaan.utils.ScoreBoardUtil;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -107,12 +106,12 @@ public class Utils {
      * https://github.com/bowser0000/SkyblockMod/blob/master/LICENSE
      * @author bowser0000
      */
-    /*public static void checkForSkyblock() {
+    public static void checkForSkyblock() {
         if (isOnHypixel()) {
             if(mc.theWorld.getScoreboard() == null) return;
             ScoreObjective scoreboardObj = mc.theWorld.getScoreboard().getObjectiveInDisplaySlot(1);
             if (scoreboardObj != null) {
-                String scObjName = ScoreboardUtil.fixFormatting(scoreboardObj.getDisplayName(),true);
+                String scObjName = ScoreBoardUtil.fixFormatting(scoreboardObj.getDisplayName(), true);
                 if (scObjName.contains("SKYBLOCK")) {
                     inSkyblock = true;
                     return;
@@ -120,7 +119,7 @@ public class Utils {
             }
         }
         inSkyblock = false;
-    }*/
+    }
 
     public static String cleanColor(String in) {
         return in.replaceAll("(?i)\\u00A7.", "");

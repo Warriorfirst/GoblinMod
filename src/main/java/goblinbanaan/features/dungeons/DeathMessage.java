@@ -1,11 +1,11 @@
 package goblinbanaan.features.dungeons;
 
 import goblinbanaan.config.GoblinConfig;
+import static goblinbanaan.utils.Utils.inDungeons;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import static goblinbanaan.utils.Utils.inDungeons;
 import java.util.Random;
 
 
@@ -19,11 +19,10 @@ public class DeathMessage {
 
 
 
-
         // Add so it does forgor
         // This if-statements checks if dungeonDeathMessage is toggled to true, and it then checks
         // whether someone has died or not and will give certain output.(This also ignores if you've died.)
-        if (GoblinConfig.dungeonDeathMessage && inDungeons && message.startsWith("☠") && (message.contains("killed by") || message.contains("died to a trap")) && message.contains("and became a ghost.") && !(message.contains("☠ You ")) && !(message.contains("☠ You died to a trap and became a ghost."))) {
+        if (GoblinConfig.dungeonDeathMessage && inDungeons && message.startsWith(" ☠ ") && (message.contains("killed by") || message.contains("died to a trap")) && message.contains("and became a ghost.") && !(message.contains("☠ You ")) && !(message.contains("☠ You died to a trap and became a ghost."))) {
             EntityPlayerSP player = Minecraft.getMinecraft().thePlayer;
             if (!GoblinConfig.dungeonDeathMessageText.isEmpty()) {
                 player.sendChatMessage(GoblinConfig.dungeonDeathMessageText);
