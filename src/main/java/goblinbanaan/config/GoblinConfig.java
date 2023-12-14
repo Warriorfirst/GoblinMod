@@ -22,6 +22,15 @@ public class GoblinConfig extends Vigilant {
     )
     public static boolean dungeonDeathMessage = false;
 
+    @Property(
+            type = PropertyType.TEXT, name = "Specify the Death Message Text",
+            description = "This text will be sent when someone dies, leaving this \nempty will cause it to for example say \"Good night\" when someone dies.",
+            category = "Dungeon", subcategory = "Funny stuff",
+            searchTags = {"Dead"}
+    )
+
+    public static String dungeonDeathMessageText = "";
+
     public static GoblinConfig INSTANCE = new GoblinConfig();
 
     public GoblinConfig() {
