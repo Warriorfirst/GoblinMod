@@ -106,19 +106,20 @@ public class Utils {
      * https://github.com/bowser0000/SkyblockMod/blob/master/LICENSE
      * @author bowser0000
      */
-    public static void checkForSkyblock() {
+    public static boolean checkForSkyblock() {
         if (isOnHypixel()) {
-            if(mc.theWorld.getScoreboard() == null) return;
+            if(mc.theWorld.getScoreboard() == null) return false;
             ScoreObjective scoreboardObj = mc.theWorld.getScoreboard().getObjectiveInDisplaySlot(1);
             if (scoreboardObj != null) {
                 String scObjName = ScoreBoardUtil.fixFormatting(scoreboardObj.getDisplayName(), true);
                 if (scObjName.contains("SKYBLOCK")) {
                     inSkyblock = true;
-                    return;
+                    return true;
                 }
             }
         }
         inSkyblock = false;
+        return false;
     }
 
     public static String cleanColor(String in) {
@@ -219,17 +220,18 @@ public class Utils {
      * https://github.com/bowser0000/SkyblockMod/blob/master/LICENSE
      * @author bowser0000
      */
-    public static void checkForDungeons() {
-        if (inSkyblock) {
+    public static boolean checkForDungeons() {
+        if (checkForSkyblock()) {
             List<String> scoreboard = ScoreBoardUtil.getSidebarLines();
             for (String s : scoreboard) {
                 if ((s.contains("The Catacombs") && !s.contains("Queue")) || s.contains("Cleared:")) {
                     inDungeons = true;
-                    return;
+                    return true;
                 }
             }
         }
         inDungeons = false;
+        return false;
     }
 
 
