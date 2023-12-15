@@ -35,45 +35,59 @@ public class JoinDungeons {
                     EntityPlayerSP player = Minecraft.getMinecraft().thePlayer;
 
                     switch (lastTwoLetters) {
+                        case "F1":
                         case "f1":
                             player.sendChatMessage("/joininstance CATACOMBS_FLOOR_ONE");
                             break;
+                        case "F2":
                         case "f2":
                             player.sendChatMessage("/joininstance CATACOMBS_FLOOR_TWO");
                             break;
+                        case "F3":
                         case "f3":
                             player.sendChatMessage("/joininstance CATACOMBS_FLOOR_THREE");
                             break;
+                        case "F4":
                         case "f4":
                             player.sendChatMessage("/joininstance CATACOMBS_FLOOR_FOUR");
                             break;
+                        case "F5":
                         case "f5":
                             player.sendChatMessage("/joininstance CATACOMBS_FLOOR_FIVE");
                             break;
+                        case "F6":
                         case "f6":
                             player.sendChatMessage("/joininstance CATACOMBS_FLOOR_SIX");
                             break;
+                        case "F7":
                         case "f7":
                             player.sendChatMessage("/joininstance CATACOMBS_FLOOR_SEVEN");
                             break;
+                        case "M1":
                         case "m1":
                             player.sendChatMessage("/joininstance MASTER_CATACOMBS_FLOOR_TWO");
                             break;
+                        case "M2":
                         case "m2":
                             player.sendChatMessage("/joininstance MASTER_CATACOMBS_FLOOR_ONE");
                             break;
+                        case "M3":
                         case "m3":
                             player.sendChatMessage("/joininstance MASTER_CATACOMBS_FLOOR_THREE");
                             break;
+                        case "M4":
                         case "m4":
                             player.sendChatMessage("/joininstance MASTER_CATACOMBS_FLOOR_FOUR");
                             break;
+                        case "M5":
                         case "m5":
                             player.sendChatMessage("/joininstance MASTER_CATACOMBS_FLOOR_FIVE");
                             break;
+                        case "M6":
                         case "m6":
                             player.sendChatMessage("/joininstance MASTER_CATACOMBS_FLOOR_SIX");
                             break;
+                        case "M7":
                         case "m7":
                             player.sendChatMessage("/joininstance MASTER_CATACOMBS_FLOOR_SEVEN");
                             break;
