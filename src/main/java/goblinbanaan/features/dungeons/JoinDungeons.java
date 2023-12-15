@@ -18,9 +18,8 @@ public class JoinDungeons {
 
         // Example text: Party > [VIP+] Goblinbanaan: !m7
         if (GoblinConfig.queueCommands && checkForFloor.startsWith("§9Party §8> ") && (checkForFloor.contains(": !m") || checkForFloor.contains(": !f"))) {
-            System.out.println("Whole command 2: " + checkForFloor);
             String[] words = checkForFloor.split(" ");
-            System.out.println("Whole command 3: " + words);
+
 
             if (words.length > 1 && words[1].startsWith("[") && words[1].endsWith("]")) {
                 words = ArrayUtils.remove(words, 1);
