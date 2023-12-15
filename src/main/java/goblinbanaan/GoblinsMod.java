@@ -5,6 +5,7 @@ import static goblinbanaan.utils.Utils.inDungeons;
 import goblinbanaan.commands.GoblinCommand;
 import goblinbanaan.features.dungeons.DeathMessage;
 import goblinbanaan.features.dungeons.JoinDungeons;
+import goblinbanaan.features.miscellaneous.HealthCheck;
 import net.minecraft.command.ICommand;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
@@ -43,7 +44,8 @@ public class GoblinsMod {
         List<Object> features = Arrays.asList(
                 this,
                 new DeathMessage(),
-                new JoinDungeons()
+                new JoinDungeons(),
+                new HealthCheck()
         );
         features.forEach(MinecraftForge.EVENT_BUS::register);
 
