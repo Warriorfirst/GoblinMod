@@ -4,34 +4,38 @@ import goblinbanaan.config.GoblinConfig;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+import static goblinbanaan.utils.Utils.checkForSkyblock;
+
 public class HealthCheck {
 
     protected boolean reminderCooldown = false;
 
     @SubscribeEvent
     public void onChat(ClientChatReceivedEvent event) {
-        String checkForHp = event.message.getUnformattedText();
-        // Goud hp
-        // §64,209/3,909❤     §a864§a❈ Defense     §b2,284/2,284✎ Mana
+        String chatMessage = event.message.getUnformattedText();
+        System.out.println(chatMessage);
 
-        // red
-        // §c3,909/3,909❤     §a867§a❈ Defense     §b1,031/2,292✎ Mana
-        System.out.println(checkForHp);
+        if (GoblinConfig.healReminder &&
+                (chatMessage.startsWith("§6") || chatMessage.startsWith(" §c")) &&
+                chatMessage.contains("§a❈ Defense     §b") &&
+                chatMessage.endsWith("✎ Mana") && checkForSkyblock()) {
 
-        if (GoblinConfig.healReminder && (checkForHp.startsWith("§6") || checkForHp.startsWith(" §c")) && checkForHp.contains("§a❈ Defense     §b") && checkForHp.endsWith("✎ Mana")) {
-            String modifiedString = checkForHp.substring(3);
-            System.out.println("Modified String: " + modifiedString);
-            int heartIndex = modifiedString.indexOf("❤");
+            int heartIndex = chatMessage.indexOf("❤");
+            if (heartIndex == -1) return;
 
-            String rightSideOfHpRemoved = modifiedString.substring(0, heartIndex);
-            String[] hpParts = rightSideOfHpRemoved.split("/");
+            String hpInfo = chatMessage.substring(0, heartIndex);
 
+            int hpStartIndex = hpInfo.lastIndexOf('§');
+            if (hpStartIndex == -1) return;
+
+            hpInfo = hpInfo.substring(hpStartIndex + 1);
+            String[] hpParts = hpInfo.split("/");
             String currentHP = hpParts[0].replaceAll("[^0-9,]", "");
+            currentHP = currentHP.substring(1);
             String maxHP = hpParts[1].replaceAll("[^0-9,]", "");
 
             System.out.println("CurrentHP: " + currentHP);
             System.out.println("MaxHP: " + maxHP);
-
         }
     }
 }
