@@ -18,14 +18,20 @@ public class HealthCheck {
         // §c3,909/3,909❤     §a867§a❈ Defense     §b1,031/2,292✎ Mana
         System.out.println(checkForHp);
 
-        if(GoblinConfig.healReminder && (checkForHp.startsWith(" §6") || checkForHp.startsWith(" §c")) && checkForHp.contains("§a❈ Defense     §b") && checkForHp.endsWith("✎ Mana")) {
+        if (GoblinConfig.healReminder && (checkForHp.startsWith("§6") || checkForHp.startsWith(" §c")) && checkForHp.contains("§a❈ Defense     §b") && checkForHp.endsWith("✎ Mana")) {
             String modifiedString = checkForHp.substring(3);
             System.out.println("Modified String: " + modifiedString);
             int heartIndex = modifiedString.indexOf("❤");
 
-            if (heartIndex != -1) {
             String rightSideOfHpRemoved = modifiedString.substring(0, heartIndex);
-            }
+            String[] hpParts = rightSideOfHpRemoved.split("/");
+
+            String currentHP = hpParts[0].replaceAll("[^0-9,]", "");
+            String maxHP = hpParts[1].replaceAll("[^0-9,]", "");
+
+            System.out.println("CurrentHP: " + currentHP);
+            System.out.println("MaxHP: " + maxHP);
+
         }
     }
 }
