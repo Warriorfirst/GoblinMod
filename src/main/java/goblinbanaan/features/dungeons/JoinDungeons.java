@@ -14,7 +14,6 @@ public class JoinDungeons {
     @SubscribeEvent
     public void onChat(ClientChatReceivedEvent event) {
         String checkForFloor = event.message.getUnformattedText();
-        System.out.println("Whole command 1: " + checkForFloor);
 
         // Example text: Party > [VIP+] Goblinbanaan: !m7
         if (GoblinConfig.queueCommands && checkForFloor.startsWith("§9Party §8> ") && (checkForFloor.contains(": !m") || checkForFloor.contains(": !f"))) {
