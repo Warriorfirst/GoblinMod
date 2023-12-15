@@ -26,7 +26,7 @@ public class GoblinCommand extends CommandBase {
 
     @Override
     public List<String> getCommandAliases() {
-        return Lists.newArrayList("gm","goblin");
+        return Lists.newArrayList("gm","goblin","goblinsmod");
     }
 
     @Override

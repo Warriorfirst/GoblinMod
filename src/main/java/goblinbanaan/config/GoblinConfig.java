@@ -23,8 +23,15 @@ public class GoblinConfig extends Vigilant {
             category = "Dungeon", subcategory = "Funny stuff",
             searchTags = {"Dead"}
     )
-
     public static String dungeonDeathMessageText = "";
+
+    @Property(
+            type = PropertyType.SWITCH, name = "Dungeon Join Commands",
+            description = "Allows your party to send text to queue into dungeons.\nThe commands are !f1,f2,f3 etc. till !m7.\n§cCommand only triggers if it got typed in Party Chat.",
+            category = "Dungeon", subcategory = "Party commands",
+            searchTags = {"Party", "Command", "Commands"}
+    )
+    public static boolean queueCommands = false;
 
     public static GoblinConfig INSTANCE = new GoblinConfig();
 
