@@ -9,10 +9,6 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-import java.util.Arrays;
-
-import static goblinbanaan.utils.Utils.*;
-
 public class JoinDungeons {
 
     @SubscribeEvent
