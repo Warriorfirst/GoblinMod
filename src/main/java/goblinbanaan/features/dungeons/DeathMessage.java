@@ -54,7 +54,7 @@ public class DeathMessage {
                         player.sendChatMessage("Good night!");
                         break;
                     default:
-                        player.sendChatMessage("rip");
+                        player.sendChatMessage("Rip bozo");
                         break;
                 }
             }
