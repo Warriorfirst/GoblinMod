@@ -16,7 +16,8 @@ public class JoinDungeons {
         String checkForFloor = event.message.getUnformattedText();
 
         // Example text: Party > [VIP+] Goblinbanaan: !m7
-        if (GoblinConfig.queueCommands && checkForFloor.startsWith("§9Party §8> ") && (checkForFloor.contains(": !m") || checkForFloor.contains(": !f"))) {
+        if (GoblinConfig.queueCommands && checkForFloor.startsWith("§9Party §8> ") &&
+                (checkForFloor.contains(": !m") || checkForFloor.contains(": !f"))) {
             String[] words = checkForFloor.split(" ");
 
 
