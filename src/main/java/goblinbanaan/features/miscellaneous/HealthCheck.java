@@ -33,7 +33,6 @@ public class HealthCheck {
 
             int currentHP = Integer.parseInt(hpParts[0].replaceAll("[^0-9]", ""));
             int maxHP = Integer.parseInt(hpParts[1].replaceAll("[^0-9]", ""));
-            //currentHP = removeFirstDigit(currentHP);
 
 
             if (GoblinConfig.healReminder && GoblinConfig.healthPercentage != 0) {
@@ -43,12 +42,5 @@ public class HealthCheck {
                 }
             }
         }
-    }
-
-    private int removeFirstDigit(int number) {
-        // Convert number to string, remove first character, and convert back to int
-        String numberString = Integer.toString(number);
-        numberString = numberString.substring(1);
-        return Integer.parseInt(numberString);
     }
 }
