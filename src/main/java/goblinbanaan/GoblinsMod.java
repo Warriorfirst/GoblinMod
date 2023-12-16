@@ -4,6 +4,7 @@ import goblinbanaan.config.GoblinConfig;
 import static goblinbanaan.utils.Utils.inDungeons;
 import goblinbanaan.commands.GoblinCommand;
 import goblinbanaan.features.dungeons.DeathMessage;
+import goblinbanaan.features.dungeons.FireFreezeTimer;
 import goblinbanaan.features.dungeons.JoinDungeons;
 import goblinbanaan.features.miscellaneous.HealthCheck;
 import net.minecraft.command.ICommand;
@@ -45,7 +46,8 @@ public class GoblinsMod {
                 this,
                 new DeathMessage(),
                 new JoinDungeons(),
-                new HealthCheck()
+                new HealthCheck(),
+                new FireFreezeTimer()
         );
         features.forEach(MinecraftForge.EVENT_BUS::register);
 

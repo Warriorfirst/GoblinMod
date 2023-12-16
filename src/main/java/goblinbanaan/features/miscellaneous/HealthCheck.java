@@ -15,11 +15,10 @@ public class HealthCheck {
     @SubscribeEvent
     public void onChat(ClientChatReceivedEvent event) {
         String chatMessage = event.message.getUnformattedText();
-        System.out.println(chatMessage);
 
         if (GoblinConfig.healReminder &&
                 (chatMessage.startsWith("§6") || chatMessage.startsWith("§c")) &&
-                chatMessage.endsWith("✎ Mana") && checkForSkyblock()) {
+                chatMessage.contains("✎ Mana") && checkForSkyblock()) {
 
             int heartIndex = chatMessage.indexOf("❤");
             if (heartIndex == -1) return;

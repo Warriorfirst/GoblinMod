@@ -19,7 +19,7 @@ public class GoblinConfig extends Vigilant {
 
     @Property(
             type = PropertyType.TEXT, name = "Death Message Text",
-            description = "This text will be sent when someone dies, leaving this \nempty will cause it to for example say \"Good night\" when someone dies\n§cDungeon Death Message must be enabled for it to work.",
+            description = "This text will be sent when someone dies, leaving this \nempty will cause it to for example say \"Good night\" when someone dies.",
             category = "Dungeon", subcategory = "Funny stuff",
             searchTags = {"Dead"}
     )
@@ -32,6 +32,14 @@ public class GoblinConfig extends Vigilant {
             searchTags = {"Party", "Command", "Commands"}
     )
     public static boolean queueCommands = false;
+
+    @Property(
+            type = PropertyType.SWITCH, name = "Fire Freeze Timer",
+            description = "This displays a title screen to let you know when to use the Fire Freeze in F3/M3\n§cSkyblock Addons' boss message hider must be disabled for this to work.",
+            category = "Dungeon", subcategory = "Miscellaneous",
+            searchTags = {"ff", "M3", "F3", "Professor"}
+    )
+    public static boolean fireFreezeTimer = false;
 
     @Property(
             type = PropertyType.SWITCH, name = "Heal reminder",
@@ -60,6 +68,8 @@ public class GoblinConfig extends Vigilant {
 
     public GoblinConfig() {
         super(new File("./config/goblinmod.toml"), "GoblinsMod (" + GoblinsMod.VERSION + ")");
+        addDependency("healthPercentage","healReminder");
+        addDependency("dungeonDeathMessageText","dungeonDeathMessage");
         initialize();
     }
 
