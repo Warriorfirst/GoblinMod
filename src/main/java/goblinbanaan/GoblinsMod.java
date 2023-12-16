@@ -22,6 +22,7 @@ import java.util.List;
 @Mod(modid = GoblinsMod.MODID, version = GoblinsMod.VERSION)
 public class GoblinsMod {
     public static final String MODID = "GoblinsMod", VERSION = "1.0.0";
+    private final FireFreezeTimer fireFreezeTimer = new FireFreezeTimer();
 
     @Mod.Instance(MODID)
     public static GoblinsMod instance;
@@ -51,6 +52,7 @@ public class GoblinsMod {
                 new FireFreezeTimer()
         );
         features.forEach(MinecraftForge.EVENT_BUS::register);
+
 
     }
 
