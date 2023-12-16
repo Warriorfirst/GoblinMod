@@ -29,17 +29,17 @@ public class Utils {
 
     public static boolean inSkyblock = false;
     public static boolean inDungeons = false;
-    public static int Health;
-    public static int maxHealth;
 
-    public static int Mana;
-    public static int maxMana;
-
-    public static int Defence;
     public static final NumberFormat nf = NumberFormat.getInstance(Locale.US);
 
     private static final String[] steps = new String[] {"", "K", "M", "B","T"};
 
+
+    /**
+     * Taken from SkyblockFeatures under GPL 3.0 license
+     * https://github.com/MrFast-js/SkyblockFeatures/blob/main/LICENSE
+     * @author MrFast-js
+     */
     public static String shortenNumber(double number) {
         if(number<1000) {
             return ((int) number)+"";
