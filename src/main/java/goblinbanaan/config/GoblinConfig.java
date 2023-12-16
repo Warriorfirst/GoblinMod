@@ -42,15 +42,21 @@ public class GoblinConfig extends Vigilant {
     public static boolean healReminder = false;
 
     @Property(
-            type = PropertyType.TEXT, name = "Health Percentage",
+            type = PropertyType.PERCENT_SLIDER, name = "Health Percentage",
             description = "Set a certain percentage value so that a title will pop up once your HP is lower than the value.",
             category = "Miscellaneous", subcategory = "Reminders",
             searchTags = {"%", "hp"}
 
     )
-    public static String healthPercentage = "";
+    public static float healthPercentage = 0;
+
+
+
+
 
     public static GoblinConfig INSTANCE = new GoblinConfig();
+
+
 
     public GoblinConfig() {
         super(new File("./config/goblinmod.toml"), "GoblinsMod (" + GoblinsMod.VERSION + ")");

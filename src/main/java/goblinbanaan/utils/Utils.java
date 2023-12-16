@@ -296,4 +296,10 @@ public class Utils {
                 return Utils.convertToTitleCase(id);
         }
     }
+
+    public static void drawTitle(String title, String subtitle, int ticks) {
+        Minecraft.getMinecraft().ingameGUI.displayTitle(null, null, 0, ticks, 0);
+        Minecraft.getMinecraft().ingameGUI.displayTitle(title, null, -1, -1, -1);
+        Minecraft.getMinecraft().ingameGUI.displayTitle(null, subtitle, -1, -1, -1);
+    }
 }
