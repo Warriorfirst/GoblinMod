@@ -10,7 +10,6 @@ import static goblinbanaan.utils.Utils.drawTitle;
 
 public class FireFreezeTimer {
     String professorLine = "[BOSS] The Professor: Oh? You found my Guardians' one weakness?";
-    protected int seconds = 5;
 
 
     @SubscribeEvent
@@ -31,7 +30,6 @@ public class FireFreezeTimer {
                             Utils.setTimeout(()->{
                                 Minecraft.getMinecraft().ingameGUI.displayTitle("§cFire freeze in 1 seconds!", null,  0, 20, 0);
                                 Utils.setTimeout(()->{
-
                                     Minecraft.getMinecraft().ingameGUI.displayTitle("§cFire freeze NOW!", null,  0, 20, 0);
                                 },875);
                             },875);
