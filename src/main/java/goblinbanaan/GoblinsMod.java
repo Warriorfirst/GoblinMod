@@ -21,7 +21,7 @@ import java.util.List;
 
 @Mod(modid = GoblinsMod.MODID, version = GoblinsMod.VERSION)
 public class GoblinsMod {
-    public static final String MODID = "GoblinsMod", VERSION = "1.0.0";
+    public static final String MODID = "GoblinsMod", VERSION = "1.0.1";
     private final FireFreezeTimer fireFreezeTimer = new FireFreezeTimer();
 
     @Mod.Instance(MODID)

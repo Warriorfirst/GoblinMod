@@ -43,7 +43,7 @@ public class GoblinConfig extends Vigilant {
 
     @Property(
             type = PropertyType.SWITCH, name = "Heal reminder",
-            description = "This will display a title on screen if your HP is lower than a certain percentage",
+            description = "This will display a title on screen if your HP is lower than a certain percentage.",
             category = "Miscellaneous", subcategory = "Reminders",
             searchTags = {"hp", "low"}
     )
