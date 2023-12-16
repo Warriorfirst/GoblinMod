@@ -1,6 +1,7 @@
 package goblinbanaan.features.miscellaneous;
 
 import goblinbanaan.config.GoblinConfig;
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -19,7 +20,6 @@ public class HealthCheck {
         if (GoblinConfig.healReminder &&
                 (chatMessage.startsWith("§6") || chatMessage.startsWith("§c")) &&
                 chatMessage.endsWith("✎ Mana") && checkForSkyblock()) {
-            System.out.println("HEAL REMINDER PASSED");
 
             int heartIndex = chatMessage.indexOf("❤");
             if (heartIndex == -1) return;
@@ -33,15 +33,13 @@ public class HealthCheck {
 
             int currentHP = Integer.parseInt(hpParts[0].replaceAll("[^0-9]", ""));
             int maxHP = Integer.parseInt(hpParts[1].replaceAll("[^0-9]", ""));
-            currentHP = removeFirstDigit(currentHP);
+            //currentHP = removeFirstDigit(currentHP);
 
 
             if (GoblinConfig.healReminder && GoblinConfig.healthPercentage != 0) {
-                System.out.println("Heal percentage is: " + GoblinConfig.healthPercentage);
                 if (currentHP <= (maxHP * GoblinConfig.healthPercentage)) {
-                    System.out.println("Drawing a title ");
                     drawTitle("Heal up!", null, 30);
-                    System.out.println("Drawing a title 2");
+                    Minecraft.getMinecraft().ingameGUI.displayTitle("§cHeal up!", null,  0, 30, 0);
                 }
             }
         }
