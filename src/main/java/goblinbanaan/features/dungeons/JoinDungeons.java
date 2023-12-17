@@ -64,7 +64,6 @@ public class JoinDungeons {
                         case "m2":
                             player.sendChatMessage("/joininstance MASTER_CATACOMBS_FLOOR_ONE");
                             break;
-                        case "M3":
                         case "m3":
                             player.sendChatMessage("/joininstance MASTER_CATACOMBS_FLOOR_THREE");
                             break;
