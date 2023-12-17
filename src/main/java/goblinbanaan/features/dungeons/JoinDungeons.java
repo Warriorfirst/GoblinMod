@@ -33,7 +33,7 @@ public class JoinDungeons {
 
                 if (command.length() >= 2) {
                     String lastTwoLetters = command.substring(command.length() - 2);
-                    lastTwoLetters.toLowerCase();
+                    lastTwoLetters = lastTwoLetters.toLowerCase();
                     EntityPlayerSP player = Minecraft.getMinecraft().thePlayer;
 
                     switch (lastTwoLetters) {
