@@ -6,6 +6,7 @@ plugins {
     id("io.github.juuxel.loom-quiltflower")
     id("dev.architectury.architectury-pack200")
     id("com.github.johnrengelman.shadow")
+    id("org.jetbrains.kotlin.jvm") version "1.9.0"
 }
 
 group = "dev.dumatech"
@@ -39,6 +40,7 @@ dependencies {
     forge("net.minecraftforge:forge:1.8.9-11.15.1.2318-1.8.9")
     compileOnly("gg.essential:essential-1.8.9-forge:15490+g7b549fcfbd")
     embed("gg.essential:loader-launchwrapper:1.1.3")
+    kotlin("stdlib-jdk8")
 }
 
 repositories {
