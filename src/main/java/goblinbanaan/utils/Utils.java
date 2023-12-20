@@ -1,3 +1,9 @@
+/**
+ * Modified from SkyblockFeatures under GNU Lesser General Public License v3.0
+ * https://github.com/MrFast-js/SkyblockFeatures/blob/master/LICENSE
+ * @author MrFast-js
+ */
+
 package goblinbanaan.utils;
 
 import java.text.NumberFormat;
@@ -9,12 +15,8 @@ import java.util.Locale;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
-
-
 import com.google.gson.JsonObject;
-
 import com.mojang.realmsclient.gui.ChatFormatting;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.network.NetworkPlayerInfo;
 import net.minecraft.entity.Entity;
@@ -26,6 +28,7 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
 
 public class Utils {
+
     private static final Minecraft mc = Minecraft.getMinecraft();
 
     public static boolean inSkyblock = false;
@@ -242,12 +245,6 @@ public class Utils {
         }
     }
 
-    public static void sendMessage(IChatComponent msg) {
-        if (Utils.GetMC().ingameGUI != null || Utils.GetMC().thePlayer == null) {
-            ChatComponentText prefix = new ChatComponentText(EnumChatFormatting.AQUA+"[SBF] "+EnumChatFormatting.RESET);
-            Utils.GetMC().thePlayer.addChatMessage(new ChatComponentText("").appendSibling(prefix).appendSibling(msg));
-        }
-    }
 
     public static void playSound(String sound, double pitch) {
         mc.thePlayer.playSound(sound, 1, (float) pitch);
