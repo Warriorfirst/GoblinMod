@@ -35,6 +35,12 @@ object PlayerListUtil {
         }
     }
 
+    /**
+     * Taken from Skyhanni
+     * Source: https://github.com/hannibal002/SkyHanni
+     *
+     * @author hannibal002
+     */
     @JvmStatic
     fun getTabList(): List<String> {
         val players = playerOrdering.sortedCopy(Minecraft.getMinecraft().thePlayer.sendQueue.playerInfoMap)
@@ -42,15 +48,13 @@ object PlayerListUtil {
 
         for (info in players) {
             val name = Minecraft.getMinecraft().ingameGUI.tabList.getPlayerName(info)
-            result.add(name)
+            result.add(stripColorCodes(name))
+
         }
-
-
-        println("Player List:")
-        for (name in result) {
-            println(name)
-        }
-
         return result
+    }
+
+    private fun stripColorCodes(string: String): String {
+        return string.replace("§[a-z, 1-9]".toRegex(), "")
     }
 }
