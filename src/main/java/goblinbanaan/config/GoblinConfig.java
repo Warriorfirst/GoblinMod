@@ -58,6 +58,14 @@ public class GoblinConfig extends Vigilant {
     )
     public static float healthPercentage = 0;
 
+    @Property(
+            type = PropertyType.SWITCH, name = "Quick Close Chest",
+            description = "This will close the chest in dungeons if you get an item drop by pressing any key.",
+            category = "Dungeon", subcategory = "Miscellaneous",
+            searchTags = {"open", "close", "secret"}
+    )
+    public static boolean quickCloseChest = true;
+
 
 
 
