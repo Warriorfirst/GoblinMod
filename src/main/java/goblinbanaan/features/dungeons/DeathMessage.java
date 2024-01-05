@@ -25,11 +25,15 @@ public class DeathMessage {
         // This if-statements checks if dungeonDeathMessage is toggled to true, and it then checks
         // whether someone has died or not and will give certain output.(This also ignores if you've died.)
         if (GoblinConfig.dungeonDeathMessage && checkForDungeons() && message.startsWith(" \u2620") &&
-                (message.contains("killed by") || message.contains("died to a trap")) &&
+                (message.contains("killed by") || message.contains("died to a trap") || message.contains("burned to death") || message.contains(" suffocated and became")) &&
                 message.contains("and became a ghost.") && !(message.contains("☠ You ")) &&
                 !(message.contains("☠ You died to a trap and became a ghost."))) {
             EntityPlayerSP player = Minecraft.getMinecraft().thePlayer;
-            if (!GoblinConfig.dungeonDeathMessageText.isEmpty()) {
+
+            if (message.contains(" suffocated and became")) {
+                player.sendChatMessage("Breathing is an optional.");
+            }
+            if (!GoblinConfig.dungeonDeathMessageText.isEmpty() && !message.contains(" suffocated and became")) {
                 player.sendChatMessage(GoblinConfig.dungeonDeathMessageText);
             } else {
                 int randomNumber = random.nextInt(7) + 1;

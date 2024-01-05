@@ -9,7 +9,7 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-public class JoinDungeons {
+public class PartyCommands {
 
     @SubscribeEvent
     public void onChat(ClientChatReceivedEvent event) {

@@ -1,11 +1,9 @@
 package goblinbanaan;
 
 import goblinbanaan.config.GoblinConfig;
-import static goblinbanaan.utils.Utils.inDungeons;
 import goblinbanaan.commands.GoblinCommand;
 import goblinbanaan.features.dungeons.*;
 import goblinbanaan.features.miscellaneous.HealthCheck;
-import goblinbanaan.features.miscellaneous.SellSuggester;
 import net.minecraft.command.ICommand;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
@@ -18,10 +16,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@Mod(modid = GoblinsMod.MODID, version = GoblinsMod.VERSION)
+@Mod(modid = GoblinsMod.MODID, name = GoblinsMod.NAME, version = GoblinsMod.VERSION)
 public class GoblinsMod {
-    public static final String MODID = "GoblinsMod", VERSION = "1.0.1";
-    private final FireFreezeTimer fireFreezeTimer = new FireFreezeTimer();
+    public static final String MODID = "GoblinsMod", VERSION = "1.0.1", NAME = "Goblins Mod";
 
     @Mod.Instance(MODID)
     public static GoblinsMod instance;
@@ -46,7 +43,7 @@ public class GoblinsMod {
         List<Object> features = Arrays.asList(
                 this,
                 new DeathMessage(),
-                new JoinDungeons(),
+                new PartyCommands(),
                 new HealthCheck(),
                 new FireFreezeTimer(),
                 //new SellSuggester(),
