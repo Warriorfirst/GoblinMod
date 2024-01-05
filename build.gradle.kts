@@ -41,10 +41,13 @@ dependencies {
     compileOnly("gg.essential:essential-1.8.9-forge:15490+g7b549fcfbd")
     embed("gg.essential:loader-launchwrapper:1.1.3")
     kotlin("stdlib-jdk8")
+    annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
+    compileOnly("org.spongepowered:mixin:0.8.5")
 }
 
 repositories {
     maven("https://repo.essential.gg/repository/maven-public")
+    maven ("https://repo.spongepowered.org/repository/maven-public/")
 }
 
 tasks {
