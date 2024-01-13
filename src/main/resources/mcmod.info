@@ -1,6 +1,6 @@
 [
     {
-        "modid": "GoblinsMod1.0.0",
+        "modid": "goblinsmod",
         "name": "GoblinsMod",
         "description": "Just a mod for me to test in",
         "version": "${version}",
