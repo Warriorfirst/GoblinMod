@@ -1,11 +1,13 @@
 package goblinbanaan.features.dungeons;
 
 import goblinbanaan.utils.PlayerListUtil;
-import net.minecraft.scoreboard.Scoreboard;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.List;
+
+import static goblinbanaan.GoblinsMod.mc;
+import static goblinbanaan.utils.Utils.detectDungeonClass;
 
 public class UltReminder {
 
@@ -15,11 +17,14 @@ public class UltReminder {
 
         if (message.contains("testi")) {
             System.out.println("It contains testi");
-            List<String> playerList = PlayerListUtil.getTabList();
-
-            for (String playerName : playerList) {
-                System.out.println(playerName);
-            }
+            String classLevel = detectDungeonClass(mc.thePlayer.getName());
+            System.out.println(classLevel);
+            System.out.println("Player name = " + mc.thePlayer.getName());
+//            List<String> playerList = PlayerListUtil.getTabList();
+//
+//            for (String playerName : playerList) {
+//                System.out.println(playerName);
+//            }
         }
     }
 }
