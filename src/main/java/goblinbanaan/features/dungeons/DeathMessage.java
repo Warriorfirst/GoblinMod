@@ -30,7 +30,7 @@ public class DeathMessage {
                 !(message.contains("☠ You died to a trap and became a ghost."))) {
             EntityPlayerSP player = Minecraft.getMinecraft().thePlayer;
 
-            if (message.contains(" suffocated and became")) {
+            if (GoblinConfig.dungeonDeathMessageText.isEmpty() && message.contains(" suffocated and became")) {
                 player.sendChatMessage("Breathing is an optional.");
             }
             if (!GoblinConfig.dungeonDeathMessageText.isEmpty() && !message.contains(" suffocated and became")) {

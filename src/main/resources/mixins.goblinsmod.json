@@ -1,0 +1,13 @@
+{
+  "minVersion": "0.6",
+  "compatibilityLevel": "JAVA_8",
+  "package": "goblinbanaan.mixins",
+  "refmap": "mixins.${modid}.refmap.json",
+  "client": [
+    "MixinMinecraft",
+    "MixinModList",
+    "MixinNetHandlerPlayClient",
+    "MixinPlayerControllerMP",
+    "MixinWorldClient"
+  ]
+}

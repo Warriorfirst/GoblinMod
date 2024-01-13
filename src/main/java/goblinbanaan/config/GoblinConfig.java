@@ -66,18 +66,85 @@ public class GoblinConfig extends Vigilant {
     )
     public static boolean quickCloseChest = true;
 
+    @Property(
+            type = PropertyType.SWITCH, name = "Auto Melody",
+            description = "Will try to complete your melody.",
+            category = "Miscellaneous", subcategory = "Auto",
+            searchTags = {"Hair", "Auto"}
+    )
+    public static boolean autoMelody = false;
+
+    @Property(
+            type = PropertyType.SWITCH, name = "Auto Soul Whip",
+            description = "Holding down right click on soulwhip will cause it to click between certain CPS.\n§cThis is currently broken! DO NOT ENABLE.",
+            category = "Miscellaneous", subcategory = "Auto",
+            searchTags = {"ac", "autoclicker"}
+    )
+    public static boolean autoSoulWhip = false;
+
+    @Property(
+            type = PropertyType.SWITCH, name = "G Key",
+            description = "Hold a certain key to make blocks turn into thin air.\n§cChange the hotkey in your minecraft settings. Esc -> Options -> Controls.",
+            category = "Dungeon", subcategory = "Ghost Block",
+            searchTags = {"gkey", "stonk"}
+    )
+    public static boolean gKey = false;
+
+    @Property(
+            type = PropertyType.SWITCH, name = "Ghost Block",
+            description = "Hold right-click on a pickaxe to make it a ghost block.",
+            category = "Dungeon", subcategory = "Ghost Block",
+            searchTags = {"gkey", "invis", "stonk"}
+    )
+    public static boolean ghostBlock = false;
+
+    @Property(
+            type = PropertyType.SWITCH, name = "Disable Mining Cooldown",
+            description = "Disables messages such as \"This ability is on cooldown for 6s\", \"Mining Speed Boost is now available!\" if you right click on a pickaxe in the air while ghost blocking.",
+            category = "Dungeon", subcategory = "Ghost Block",
+            searchTags = {"stonk"}
+    )
+    public static boolean disableMiningCooldown = false;
+
+    @Property(
+            type = PropertyType.SWITCH, name = "Safe Ghost Blocking",
+            description = "This will mimic a left click when holding right click to ghost block.\n§6Highly recommended to turn this on.",
+            category = "Dungeon", subcategory = "Ghost Block",
+            searchTags = {"stonk", "ready"}
+    )
+    public static boolean safeGhostBlock = false;
+
+    @Property(
+            type = PropertyType.SWITCH, name = "Stonkdelay",
+            description = "Broken blocks will be ghostblocked for a certain duration\n§cThis will only work if you have Ghost Block disabled",
+            category = "Dungeon", subcategory = "Ghost Block"
+    )
+    public static boolean stonkDelay = false;
+
+    @Property(
+            type = PropertyType.SLIDER, name = "Set Ghost Block Duration",
+            description = "Set a certain duration before the blocks appear again.\nSetting this to 0 disables it.\nSetting this to 60000 will make it last permanently.",
+            category = "Dungeon", subcategory = "Ghost Block",
+            min = 0,
+            max = 60000
+    )
+    public static int stonkDelayDuration = 0;
+
+
+
 
 
 
 
     public static GoblinConfig INSTANCE = new GoblinConfig();
 
-
-
     public GoblinConfig() {
         super(new File("./config/goblinmod.toml"), "GoblinsMod (" + GoblinsMod.VERSION + ")");
         addDependency("healthPercentage","healReminder");
         addDependency("dungeonDeathMessageText","dungeonDeathMessage");
+        addDependency("disableMiningCooldown","ghostBlock");
+        addDependency("safeGhostBlock","ghostBlock");
+        addDependency("stonkDelayDuration","stonkDelay");
         initialize();
     }
 

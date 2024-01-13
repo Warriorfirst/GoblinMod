@@ -1,5 +1,4 @@
 import dev.architectury.pack200.java.Pack200Adapter
-import java.util.regex.Pattern.compile
 
 plugins {
     id("gg.essential.loom")
@@ -8,6 +7,10 @@ plugins {
     id("com.github.johnrengelman.shadow")
     id("org.jetbrains.kotlin.jvm") version "1.9.0"
 }
+
+val modName: String by project
+val modID: String by project
+val modVersion: String by project
 
 group = "dev.dumatech"
 version = "1.0.0"
@@ -18,17 +21,23 @@ loom {
             ideConfigGenerated(true)
 
         }
+        remove(getByName("server"))
     }
-
+    silentMojangMappingsLicense()
     launchConfigs {
         getByName("client") {
+            property("mixin.debug", "true")
+            property("asmhelper.verbose", "true")
             arg("--tweakClass", "gg.essential.loader.stage0.EssentialSetupTweaker")
+            arg("--mixin", "mixins.${modID}.json")
         }
     }
 
     forge {
         pack200Provider.set(Pack200Adapter())
+        mixinConfig("mixins.${modID}.json")
     }
+    mixin.defaultRefmapName.set("mixins.${modID}.refmap.json")
 }
 
 val embed: Configuration by configurations.creating
@@ -63,11 +72,34 @@ tasks {
     }
 
     processResources {
+        inputs.property("modname", modName)
+        inputs.property("modid", modID)
         inputs.property("version", project.version)
         inputs.property("mcversion", "1.8.9")
-        filesMatching("mcmod.info") {
-            expand("version" to project.version, "mcversion" to "1.8.9")
+        filesMatching(listOf("mcmod.info", "mixins.${modID}.json")) {
+            expand(
+                mapOf(
+                    "modname" to modName,
+                    "modid" to modID,
+                    "version" to project.version,
+                    "mcversion" to "1.8.9"
+                )
+            )
         }
+        dependsOn(compileJava)
+    }
+    named<Jar>("jar") {
+        manifest.attributes(
+            "FMLCorePluginContainsFMLMod" to true,
+            "FMLCorePlugin" to "${modID}.forge.FMLLoadingPlugin",
+            "ForceLoadAsMod" to true,
+            "MixinConfigs" to "mixins.${modID}.json",
+            "ModSide" to "CLIENT",
+            "TweakClass" to "gg.essential.loader.stage0.EssentialSetupTweaker",
+            "TweakOrder" to "0"
+        )
+        dependsOn(shadowJar)
+        enabled = true
     }
 
     withType<JavaCompile> {
