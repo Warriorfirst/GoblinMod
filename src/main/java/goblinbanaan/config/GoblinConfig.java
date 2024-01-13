@@ -65,7 +65,22 @@ public class GoblinConfig extends Vigilant {
             searchTags = {"open", "close", "secret"}
     )
     public static boolean quickCloseChest = true;
+    
+    @Property(
+            type = PropertyType.SWITCH, name = "Bonzo Timer",
+            description = "Bonzo Mask timer to help with pre 4 in M7 and F7",
+            category = "Dungeon", subcategory = "Miscellaneous",
+        searchTags = {"helper", "pre4"}
+    )
+    public static boolean bonzoTimer = false;
 
+    @Property(
+            type = PropertyType.SWITCH, name = "Phoenix Timer",
+            description = "Phoenix Pet timer to help with pre 4 in M7 and F7",
+            category = "Dungeon", subcategory = "Miscellanous",
+            searchTags = {"helper", "pre4"}
+    )
+    public static boolean phoenixTimer = false;
 
 
 
