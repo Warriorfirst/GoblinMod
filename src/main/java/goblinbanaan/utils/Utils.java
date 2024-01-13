@@ -31,7 +31,6 @@ public class Utils {
 
     private static final Minecraft mc = Minecraft.getMinecraft();
 
-    public static boolean inSkyblock = false;
     public static boolean inDungeons = false;
 
     public static final NumberFormat nf = NumberFormat.getInstance(Locale.US);
@@ -117,12 +116,10 @@ public class Utils {
             if (scoreboardObj != null) {
                 String scObjName = ScoreBoardUtil.fixFormatting(scoreboardObj.getDisplayName(), true);
                 if (scObjName.contains("SKYBLOCK")) {
-                    inSkyblock = true;
                     return true;
                 }
             }
         }
-        inSkyblock = false;
         return false;
     }
 
@@ -238,10 +235,80 @@ public class Utils {
         return false;
     }
 
+    public static boolean dungeonStarted() {
+        if (checkForSkyblock()) {
+            List<String> scoreboard = ScoreBoardUtil.getSidebarLines();
+            for (String s : scoreboard) {
+                if ((s.contains("The Catacombs") && !s.contains("Queue")) && s.contains("Cleared:")) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static String floorName() {
+        if (checkForDungeons()) {
+            List<String> scoreboard = ScoreBoardUtil.getSidebarLines();
+            for (String s : scoreboard) {
+                if (s.contains("The Catacombs (F1)")) {
+                    return "F1";
+                } else if (s.contains("The Catacombs (F2)")) {
+                    return "F2";
+                } else if (s.contains("The Catacombs (F3)")) {
+                    return "F3";
+                } else if (s.contains("The Catacombs (F4)")) {
+                    return "F4";
+                } else if (s.contains("The Catacombs (F5)")) {
+                    return "F5";
+                } else if (s.contains("The Catacombs (F6)")) {
+                    return "F6";
+                } else if (s.contains("The Catacombs (F7)")) {
+                    return "F7";
+                } else if (s.contains("The Catacombs (M1)")) {
+                    return "M1";
+                } else if (s.contains("The Catacombs (M2)")) {
+                    return "M2";
+                } else if (s.contains("The Catacombs (M3)")) {
+                    return "M3";
+                } else if (s.contains("The Catacombs (M4)")) {
+                    return "M4";
+                } else if (s.contains("The Catacombs (M5)")) {
+                    return "M5";
+                } else if (s.contains("The Catacombs (M6)")) {
+                    return "M6";
+                } else if (s.contains("The Catacombs (M7)")) {
+                    return "M7";
+                }
+            }
+        }
+        return "Couldn't detect floor";
+    }
+
+    public static String detectDungeonClass(String playerName) {
+        if (dungeonStarted()) {
+            List<String> playerList = PlayerListUtil.getTabList();
+
+            for (String entry : playerList) {
+                if (entry.contains(playerName) && entry.contains("(Mage ")) {
+                    return "Mage";
+                } else if (entry.contains(playerName) && entry.contains("(Healer ")) {
+                    return "Healer";
+                } else if (entry.contains(playerName) && entry.contains("(Berserk ")) {
+                    return "Berserk";
+                } else if (entry.contains(playerName) && entry.contains("(Tank ")) {
+                    return "Tank";
+                } else if (entry.contains(playerName) && entry.contains("(Archer ")) {
+                    return "Archer";
+                }
+            }
+        }
+        return "Not in dungeon";
+    }
 
     public static void sendMessage(String string) {
         if (Utils.GetMC().ingameGUI != null || Utils.GetMC().thePlayer == null) {
-            Utils.GetMC().ingameGUI.getChatGUI().printChatMessage(new ChatComponentText(ChatFormatting.AQUA+"[SBF] "+ChatFormatting.RESET+string));
+            Utils.GetMC().ingameGUI.getChatGUI().printChatMessage(new ChatComponentText("[§b[§3GoblinsMod§b] "+ChatFormatting.RESET+string));
         }
     }
 
@@ -253,7 +320,7 @@ public class Utils {
     public static boolean isNPC(Entity entity) {
         if(entity instanceof EntityPlayer) {
             EntityLivingBase entityLivingBase = (EntityLivingBase) entity;
-            return entity.getUniqueID().version() == 2 && entityLivingBase.getHealth() == 20.0F && !entityLivingBase.isPlayerSleeping() && Utils.inSkyblock;
+            return entity.getUniqueID().version() == 2 && entityLivingBase.getHealth() == 20.0F && !entityLivingBase.isPlayerSleeping() && Utils.checkForSkyblock();
         } else return false;
     }
 
@@ -299,5 +366,10 @@ public class Utils {
         Minecraft.getMinecraft().ingameGUI.displayTitle(null, null, 0, ticks, 0);
         Minecraft.getMinecraft().ingameGUI.displayTitle(title, null, -1, -1, -1);
         Minecraft.getMinecraft().ingameGUI.displayTitle(null, subtitle, -1, -1, -1);
+    }
+
+    public static int getRandomNumberInRange (int number1, int number2) {
+        Random random = new Random();
+        return random.nextInt((number2 - number1) + 1) + number1;
     }
 }
