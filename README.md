@@ -7,7 +7,8 @@ GoblinsMod is a Forge Mod made by BabyGetSwekt/Goblinbanaan. This mod runs on ve
 [Antipowers](https://github.com/antipowers) for their [Forge Template](https://github.com/antipowers/ForgeTemplate)  
 [appable0](https://github.com/appable0)'s [Stonk Delay](https://github.com/appable0/StonkDelay)  
 [Harry282](https://github.com/Harry282) for their help. Some features from GoblinsMod were inspired by [Skyblock Client](https://github.com/Harry282/Skyblock-Client)  
-[MrFast-js](https://github.com/MrFast-js) for their massive help. A lot of the features in GoblinsMod are build upon [SkyblockFeatures](https://github.com/MrFast-js/SkyblockFeatures  )
+[MrFast-js](https://github.com/MrFast-js) for their massive help. A lot of the features in GoblinsMod are build upon [SkyblockFeatures](https://github.com/MrFast-js/SkyblockFeatures)  
+[FloppaCoding](https://github.com/FloppaCoding)'s mod called [FloppaClient](https://github.com/FloppaCoding/FloppaClient). Some features from GoblinsMod were inspired by FloppaClient.  
 
 # :pencil: Building
 
