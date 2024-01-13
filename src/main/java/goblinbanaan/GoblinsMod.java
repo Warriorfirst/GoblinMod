@@ -61,7 +61,9 @@ public class GoblinsMod {
                 new AutoHarp(),
                 new AutoSoulWhip(),
                 new GhostBlock(),
-                new AutoLeap()
+                new AutoLeap(),
+                new BonzoTimer(),
+                new PhoenixTimer()
 
         );
         features.forEach(MinecraftForge.EVENT_BUS::register);
