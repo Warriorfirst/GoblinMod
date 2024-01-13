@@ -87,4 +87,3 @@ public class ScoreBoardUtil {
         return lines;
     }
 }
-
